@@ -9,7 +9,7 @@ class Scanner():
         self.closest_dest = float
         self.closest_lat = float
         self.closest_lon = float
-        self.closest_adress = str
+        self.closest_address = str
         self.closest_type = str
         self.closest_timework = str
         self.closest_content = str
@@ -34,7 +34,7 @@ class Scanner():
                         self.closest_dest = haversine_calc
                         self.closest_lat = i['lat']
                         self.closest_lon = i['lng']
-                        self.closest_adress = i['address']
+                        self.closest_address = i['address']
                         self.closest_type = i['type']
                         self.closest_timework = i['timework']
                         self.closest_content = i['content']
