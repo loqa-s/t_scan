@@ -42,13 +42,10 @@ def location(message):
                              text=reply_scanner,
                              parse_mode='Markdown')
             bot.send_location(message.chat.id,
-                              latitude=scanner.closest_lat,
-                              longitude=scanner.closest_lon)
+                              latitude=float(scanner.closest_lat),
+                              longitude=float(scanner.closest_lon))
 
-            print(scanner.user_coord)
-            print(scanner.closest_address)
-            print(scanner.closest_lat, scanner.closest_lon)
-            print(round(scanner.closest_dest, 3))
+            print(f'DONE: {scanner.closest_dest}')
         else:
             bot.send_message(message.chat.id,
                              text=f'Извините, но ближайший туалет от вас больше, чем в {KM_LIMIT} км! Придется потерпеть..')
