@@ -34,14 +34,10 @@ class Scanner():
                         self.closest_dest = haversine_calc
                         self.closest_lat = i['lat']
                         self.closest_lon = i['lng']
-                        self.closest_adress = i['adress']
+                        self.closest_adress = i['address']
                         self.closest_type = i['type']
                         self.closest_timework = i['timework']
-
-                        if len(i['content']) != 0:
-                            self.closest_content = i['content']
-                        else:
-                            self.closest_content = 'факта нет ☹️'
+                        self.closest_content = i['content']
 
                 except TypeError:
                     self.closest_dest = haversine_calc
