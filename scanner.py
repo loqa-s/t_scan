@@ -4,8 +4,6 @@ import haversine
 
 class Scanner():
     def __init__(self):
-        self.user_coord = tuple
-
         self.closest_dest = float
         self.closest_lat = float
         self.closest_lon = float
@@ -14,10 +12,10 @@ class Scanner():
         self.closest_timework = str
         self.closest_content = str
 
-    def toilet_parse(self):
+    def toilet_parse(self, user_coords):
+        self.closest_dest = float
         with open('data.json', 'r') as f:
             data = json.load(f)
-
             for i in data:
                 try:
                     t_lat = float(i['lat'])
@@ -26,7 +24,7 @@ class Scanner():
                 except ValueError:
                     pass
 
-                haversine_calc = haversine.haversine(self.user_coord, t_coord)
+                haversine_calc = haversine.haversine(user_coords, t_coord)
 
                 try:
                     if self.closest_dest > haversine_calc:

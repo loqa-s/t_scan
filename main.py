@@ -31,10 +31,9 @@ def location(message):
     if message.location is not None:
         user_lat = message.location.latitude
         user_lon = message.location.longitude
+        user_coords = (user_lat, user_lon)
 
-        scanner.closest_dest = float
-        scanner.user_coord = (user_lat, user_lon)
-        scan_for_toilets = scanner.toilet_parse()
+        scan_for_toilets = scanner.toilet_parse(user_coords=user_coords)
 
         if int(scanner.closest_dest) < KM_LIMIT:
             reply_scanner = f'Туалет всего-то в *{round(scanner.closest_dest, 3)}* км от вас!\n\n*Адрес(можно скопировать):* `{scanner.closest_address}`\n*Тип:* {scanner.closest_type}\n*Часы работы:* {scanner.closest_timework}\n*Примечание:* {scanner.closest_content}'
